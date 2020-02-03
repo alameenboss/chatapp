@@ -19,7 +19,7 @@
                 }
                 else
                 {
-                    <span class="spn-chat-user-online-status">Last seen : @Model.LastSeen</span>
+                    <span class="spn-chat-user-online-status">Last seen : <span class="prettydate">@Model.LastSeen</span></span>
                 }
             </span>
         </h3>
@@ -35,7 +35,7 @@
                         <span class="message">
                             <span class="arrow"></span>
                             <span class="from">@MySession.Current.Name</span>
-                            <span class="time">@item.CreatedOn</span>
+                            <span class="time prettydate">@item.CreatedOn</span>
                             <span data-chat-message-id="@item.ChatMessageID" class="chat-message-status">@item.Status</span>
                             <br />
                             <span class="text">
@@ -51,7 +51,7 @@
                         <span class="message">
                             <span class="arrow"></span>
                             <span class="from">@Model.UserDetail.Name</span>
-                            <span class="time">@item.CreatedOn</span>
+                            <span class="time prettydate">@item.CreatedOn</span>
                             <br />
                             <span class="text">
                                 @item.Message
@@ -79,5 +79,10 @@
         if (div.scrollTop() == 0) {
             GetOldMessages();
         }
+    });
+     $(document).find(".prettydate").prettydate({
+        autoUpdate: true,
+        dateFormat : "DD-MM-YYYY hh:mm:ss",
+        duration: 30000
     });
 </script>

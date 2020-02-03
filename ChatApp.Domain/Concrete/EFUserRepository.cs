@@ -43,7 +43,7 @@ namespace ChatApp.Domain.Concrete
         }
         public void SaveUserOnlineStatus(OnlineUser objentity)
         {
-            var obj = _context.OnlineUsers.Where(m => m.UserID == objentity.UserID && m.IsActive == true && m.ConnectionID == objentity.ConnectionID).FirstOrDefault();
+            var obj = _context.OnlineUsers.Where(m => m.UserID == objentity.UserID).FirstOrDefault();
             if (obj != null)
             {
                 obj.IsOnline = objentity.IsOnline;
